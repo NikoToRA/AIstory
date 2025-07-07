@@ -1,0 +1,16 @@
+ai_agents:
+  claude:
+    permissions:
+    - read
+    - write
+    - execute
+    workspace_access:
+    - main
+city: MyCity
+company: MyCompany
+nation: MyNation
+rooms:
+  main:
+    git_worktree: true
+    tmux_session: haconiwa-main
+    type: development
