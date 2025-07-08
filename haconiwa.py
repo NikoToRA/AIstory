@@ -96,7 +96,7 @@ class HaconiwaWorkspace:
         
         # Split main window into panes
         self._run_tmux_command(['split-window', '-t', f'{session_name}:main', '-h'])
-        self._run_tmux_command(['split-window', '-t', f'{session_name}:main.1', '-v'])
+        self._run_tmux_command(['split-window', '-t', f'{session_name}:main', '-v'])
         
         print(f"Workspace '{name}' created successfully")
         print(f"Attach with: tmux attach-session -t {session_name}")
@@ -298,13 +298,101 @@ class HaconiwaAI:
     def setup_ai_agent(self, name: str, permissions: List[str]) -> bool:
         """Setup AI agent with permissions"""
         print(f"Setting up AI agent: {name} with permissions: {permissions}")
-        # TODO: Implement AI agent setup
-        return True
         
-    def list_ai_agents(self) -> List[str]:
+        # Load current config
+        current_config = self.config.load_config()
+        
+        # Initialize ai_agents section if it doesn't exist
+        if 'ai_agents' not in current_config:
+            current_config['ai_agents'] = {}
+        
+        # Add or update AI agent
+        current_config['ai_agents'][name] = {
+            'permissions': permissions,
+            'workspace_access': ['main'],  # Default workspace access
+            'status': 'active'
+        }
+        
+        # Save updated config
+        if self.config.save_config(current_config):
+            print(f"AI agent '{name}' configured successfully")
+            return True
+        else:
+            print(f"Failed to configure AI agent '{name}'")
+            return False
+        
+    def list_ai_agents(self) -> List[Dict[str, Any]]:
         """List all AI agents"""
-        # TODO: Implement AI agent listing
-        return []
+        config = self.config.load_config()
+        ai_agents = config.get('ai_agents', {})
+        
+        agents = []
+        for name, settings in ai_agents.items():
+            agents.append({
+                'name': name,
+                'permissions': settings.get('permissions', []),
+                'workspace_access': settings.get('workspace_access', []),
+                'status': settings.get('status', 'unknown')
+            })
+        
+        return agents
+    
+    def remove_ai_agent(self, name: str) -> bool:
+        """Remove AI agent"""
+        config = self.config.load_config()
+        ai_agents = config.get('ai_agents', {})
+        
+        if name not in ai_agents:
+            print(f"AI agent '{name}' not found")
+            return False
+        
+        del ai_agents[name]
+        config['ai_agents'] = ai_agents
+        
+        if self.config.save_config(config):
+            print(f"AI agent '{name}' removed successfully")
+            return True
+        else:
+            print(f"Failed to remove AI agent '{name}'")
+            return False
+    
+    def get_agent_permissions(self, name: str) -> List[str]:
+        """Get permissions for a specific AI agent"""
+        config = self.config.load_config()
+        ai_agents = config.get('ai_agents', {})
+        
+        if name not in ai_agents:
+            return []
+        
+        return ai_agents[name].get('permissions', [])
+    
+    def check_agent_permission(self, name: str, permission: str) -> bool:
+        """Check if an AI agent has a specific permission"""
+        permissions = self.get_agent_permissions(name)
+        return permission in permissions
+    
+    def generate_agent_context(self, name: str) -> Dict[str, Any]:
+        """Generate context information for an AI agent"""
+        config = self.config.load_config()
+        ai_agents = config.get('ai_agents', {})
+        
+        if name not in ai_agents:
+            return {}
+        
+        agent_config = ai_agents[name]
+        
+        context = {
+            'agent_name': name,
+            'nation': config.get('nation', 'Unknown'),
+            'city': config.get('city', 'Unknown'),
+            'company': config.get('company', 'Unknown'),
+            'permissions': agent_config.get('permissions', []),
+            'workspace_access': agent_config.get('workspace_access', []),
+            'available_rooms': list(config.get('rooms', {}).keys()),
+            'status': agent_config.get('status', 'unknown')
+        }
+        
+        return context
 
 
 class HaconiwaCLI:
@@ -394,7 +482,20 @@ class HaconiwaCLI:
             agents = self.ai.list_ai_agents()
             print("AI Agents:")
             for agent in agents:
-                print(f"  - {agent}")
+                name = agent['name']
+                perms = ', '.join(agent['permissions'])
+                status = agent['status']
+                print(f"  - {name} ({status}) - Permissions: {perms}")
+        elif args.action == 'remove':
+            self.ai.remove_ai_agent(args.name)
+        elif args.action == 'context':
+            context = self.ai.generate_agent_context(args.name)
+            if context:
+                print(f"Context for AI agent '{args.name}':")
+                for key, value in context.items():
+                    print(f"  {key}: {value}")
+            else:
+                print(f"AI agent '{args.name}' not found")
     
     def status_command(self, args) -> None:
         """Show Haconiwa status"""
@@ -474,6 +575,12 @@ class HaconiwaCLI:
         ai_setup.add_argument('--permissions', help='Comma-separated permissions')
         
         ai_list = ai_subparsers.add_parser('list', help='List AI agents')
+        
+        ai_remove = ai_subparsers.add_parser('remove', help='Remove AI agent')
+        ai_remove.add_argument('name', help='Agent name')
+        
+        ai_context = ai_subparsers.add_parser('context', help='Show AI agent context')
+        ai_context.add_argument('name', help='Agent name')
         
         ai_parser.set_defaults(func=self.ai_command)
         

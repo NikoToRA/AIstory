@@ -6,6 +6,35 @@ ai_agents:
     - execute
     workspace_access:
     - main
+  claude-assistant:
+    permissions:
+    - read
+    - write
+    - execute
+    status: active
+    workspace_access:
+    - main
+  editor:
+    permissions:
+    - read
+    - write
+    - execute
+    status: active
+    workspace_access:
+    - main
+  monitor:
+    permissions:
+    - read
+    status: active
+    workspace_access:
+    - main
+  tester:
+    permissions:
+    - read
+    - execute
+    status: active
+    workspace_access:
+    - main
 city: MyCity
 company: MyCompany
 nation: MyNation
