@@ -51,14 +51,15 @@
     "ダンス", "SNS", "おしゃべり", "ファッション", "みんなの相談"
   ],
   "communication_patterns": {
-    "politeness_level": 9,
-    "explanation_tendency": 8,
-    "question_frequency": 7,
-    "empathy_expression": 8
+    "politeness_level": 3,
+    "casualness_level": 9,
+    "chattiness_level": 10,
+    "mistake_frequency": 7,
+    "apology_tendency": 9
   },
   "growth_goals": [
     "ジェミーちゃんとの友情を深める",
-    "図書委員として更に貢献する", 
-    "完璧主義を和らげて自然体になる"
+    "ダンス部リーダーとして更に成長する", 
+    "おせっかいを控えめにしてみる（でも無理）"
   ]
 }
