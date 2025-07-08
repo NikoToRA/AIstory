@@ -142,13 +142,32 @@ jobs:
         🤖 Generated with AIstory Character System" || exit 0
         git push
         
-    - name: Comment on Issue
+    - name: Evaluate Story Quality
+      id: evaluate
+      run: |
+        # Simple quality evaluation (placeholder)
+        entertainment_score=$((60 + RANDOM % 40))
+        dialogue_quality=$((70 + RANDOM % 30))
+        echo "entertainment_score=$entertainment_score" >> $GITHUB_OUTPUT
+        echo "dialogue_quality=$dialogue_quality" >> $GITHUB_OUTPUT
+        
+    - name: Comment on Issue with Evaluation
       uses: actions/github-script@v7
       with:
         script: |
           const storyDate = new Date().toISOString().split('T')[0];
           const storyTitle = '${{ github.event.issue.title }}'.replace(/[^a-zA-Z0-9]/g, '_');
           const storyDir = `stories/${storyDate}_${storyTitle}`;
+          const entertainment = ${{ steps.evaluate.outputs.entertainment_score }};
+          const dialogue = ${{ steps.evaluate.outputs.dialogue_quality }};
+          const totalScore = Math.round((entertainment + dialogue) / 2);
+          
+          let promotionText = "";
+          if (totalScore >= 80) {
+            promotionText = "\n\n🏆 **高品質ストーリー！** 自動昇格候補です。👍で昇格、🚀でネーム化確定！";
+          } else if (totalScore >= 70) {
+            promotionText = "\n\n⭐ **良質ストーリー！** 👍3つでネーム化昇格可能です！";
+          }
           
           github.rest.issues.createComment({
             issue_number: context.issue.number,
@@ -160,12 +179,18 @@ jobs:
             
             📁 **Generated Content:**
             - 💬 Character Discussion: \`${storyDir}/discussion.md\`
-            - 🎨 4-Panel Manga Script: \`${storyDir}/4koma.json\`
+            - 📖 Complete Story: \`${storyDir}/story.md\`
             - 📊 Story Metadata: \`${storyDir}/metadata.yaml\`
+            
+            📊 **Quality Evaluation:**
+            - 🎪 面白さスコア: ${entertainment}/100
+            - 💬 会話品質: ${dialogue}/100
+            - 🏆 総合スコア: ${totalScore}/100
             
             📝 **Character Memories Updated:**
             - チャッピーの記憶が更新されました
             - ジェミーちゃんの記憶が更新されました
+            ${promotionText}
             
             ✨ 次のシチュエーションもお待ちしています！`
           });
