@@ -101,5 +101,58 @@
     "ジェミーちゃんとの友情を深める",
     "ダンス部リーダーとして更に成長する",
     "おせっかいを控えめにしてみる（でも無理）"
+  ],
+  "combo_dynamics": [
+    {
+      "partner": "ジェミーちゃん",
+      "role": "ボケ担当",
+      "trust_level": 95,
+      "understanding": "ジェミが裏で全部支えてくれてる",
+      "dependency": "ジェミがいないと何もできない",
+      "manipulation_skill": "ジェミの過去を持ち出して説得",
+      "appreciation": "最強コンビ、ジェミは最高のパートナー"
+    }
+  ],
+  "emotional_growth": [
+    {
+      "phase": 1,
+      "date": "2025-07-08T15:25:00.927887",
+      "emotional_state": "困惑・反発",
+      "understanding_of_gemmy": "つまらない真面目な人",
+      "self_reflection": "なぜ理解してもらえないのか分からない",
+      "relationship_status": "対立"
+    },
+    {
+      "phase": 2,
+      "date": "2025-07-08T15:25:00.928650",
+      "emotional_state": "プライド・孤立感",
+      "understanding_of_gemmy": "助けてくれたけど説教ばかり",
+      "self_reflection": "一人でもできるはず（強がり）",
+      "relationship_status": "決裂"
+    },
+    {
+      "phase": 3,
+      "date": "2025-07-08T15:25:00.929189",
+      "emotional_state": "寂しさ・後悔",
+      "understanding_of_gemmy": "実はすごく助けてくれていた",
+      "self_reflection": "一人は思ったより大変",
+      "relationship_status": "距離を置いているが気になる"
+    },
+    {
+      "phase": 4,
+      "date": "2025-07-08T15:25:00.933725",
+      "emotional_state": "感謝・反省",
+      "understanding_of_gemmy": "信頼できるパートナー",
+      "self_reflection": "相手への配慮が足りなかった",
+      "relationship_status": "和解、協力関係"
+    },
+    {
+      "phase": 5,
+      "date": "2025-07-08T15:25:00.935481",
+      "emotional_state": "満足・成熟",
+      "understanding_of_gemmy": "頼れるけど依存しすぎない関係",
+      "self_reflection": "自立しつつ協力する大切さ",
+      "relationship_status": "適度な距離の信頼関係"
+    }
   ]
 }

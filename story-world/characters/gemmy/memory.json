@@ -108,5 +108,58 @@
     "チャッピーとの友情を通じて新しい視点を得る",
     "アートで人を笑顔にする",
     "自分の創造力をもっと活かす"
+  ],
+  "combo_dynamics": [
+    {
+      "partner": "チャッピー",
+      "role": "ツッコミ担当",
+      "trust_level": 90,
+      "understanding": "この人といると楽しい、認め合う関係",
+      "responsibility": "結局私が尻拭いをする",
+      "resignation": "結局付き合ってしまう自分",
+      "acceptance": "尻拭いも悪くない"
+    }
+  ],
+  "emotional_growth": [
+    {
+      "phase": 1,
+      "date": "2025-07-08T15:25:00.927890",
+      "emotional_state": "怒り・失望",
+      "understanding_of_chappie": "自分勝手で無責任",
+      "self_reflection": "自分の価値観を否定された",
+      "relationship_status": "対立"
+    },
+    {
+      "phase": 2,
+      "date": "2025-07-08T15:25:00.928652",
+      "emotional_state": "諦め・疲労感",
+      "understanding_of_chappie": "変わらない人、善意が通じない",
+      "self_reflection": "もう関わりたくない",
+      "relationship_status": "決裂"
+    },
+    {
+      "phase": 3,
+      "date": "2025-07-08T15:25:00.929190",
+      "emotional_state": "物足りなさ・懐かしさ",
+      "understanding_of_chappie": "迷惑だったけど、楽しい面もあった",
+      "self_reflection": "効率的だけど何か足りない",
+      "relationship_status": "距離を置いているが気になる"
+    },
+    {
+      "phase": 4,
+      "date": "2025-07-08T15:25:00.933732",
+      "emotional_state": "安心・再評価",
+      "understanding_of_chappie": "発想力がある、成長している",
+      "self_reflection": "もう少し柔軟になっても良い",
+      "relationship_status": "和解、協力関係"
+    },
+    {
+      "phase": 5,
+      "date": "2025-07-08T15:25:00.935482",
+      "emotional_state": "安定・成長",
+      "understanding_of_chappie": "尊重し合える対等なパートナー",
+      "self_reflection": "完璧でなくても良い関係もある",
+      "relationship_status": "適度な距離の信頼関係"
+    }
   ]
 }
