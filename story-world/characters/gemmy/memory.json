@@ -1,6 +1,6 @@
 {
   "character_name": "兼崎ちえみ (ジェミーちゃん)",
-  "last_updated": "2024-01-08", 
+  "last_updated": "2024-01-08",
   "total_experiences": 0,
   "personality_growth": {
     "creativity_level": 92,
@@ -13,10 +13,33 @@
       "date": "2024-01-08",
       "type": "初期設定",
       "event": "AIstoryシステムに登場",
-      "participants": ["システム"],
-      "emotions": ["ワクワク", "好奇心"],
+      "participants": [
+        "システム"
+      ],
+      "emotions": [
+        "ワクワク",
+        "好奇心"
+      ],
       "learning": "新しい表現の場を獲得",
       "impact_level": "high"
+    },
+    {
+      "date": "2025-07-08T15:13:51.342617",
+      "event": "うるさいダンス部の子チャッピーと出会う",
+      "emotion": "困惑",
+      "learning": "声は大きいけど悪気はない"
+    },
+    {
+      "date": "2025-07-08T15:13:51.343543",
+      "event": "チャッピーに勉強を教える",
+      "emotion": "少し嬉しい",
+      "learning": "意外と素直で良い子"
+    },
+    {
+      "date": "2025-07-08T15:13:51.343929",
+      "event": "チャッピーのダンス発表を見る",
+      "emotion": "感動",
+      "learning": "チャッピーにも弱い部分がある、人間らしい"
     }
   ],
   "relationships": {
@@ -28,27 +51,45 @@
       "interaction_count": 0,
       "last_interaction": null,
       "notes": "図書委員で知識豊富。真面目だけど優しい。自分と正反対だからこそ興味深い"
+    },
+    "chappie": {
+      "trust": 70,
+      "understanding": 60
     }
   },
   "skills_knowledge": {
     "美術・デザイン": {
       "level": 9,
       "experience_points": 140,
-      "recent_activities": ["イラスト制作", "ポスターデザイン"]
+      "recent_activities": [
+        "イラスト制作",
+        "ポスターデザイン"
+      ]
     },
     "企画立案": {
       "level": 8,
       "experience_points": 110,
-      "recent_activities": ["文化祭企画", "クラス行事アイデア"]
+      "recent_activities": [
+        "文化祭企画",
+        "クラス行事アイデア"
+      ]
     },
     "SNS・トレンド": {
       "level": 8,
       "experience_points": 125,
-      "recent_activities": ["流行調査", "写真撮影"]
+      "recent_activities": [
+        "流行調査",
+        "写真撮影"
+      ]
     }
   },
   "favorite_topics": [
-    "アート", "デザイン", "流行", "創作", "新しいアイデア", "美術部活動"
+    "アート",
+    "デザイン",
+    "流行",
+    "創作",
+    "新しいアイデア",
+    "美術部活動"
   ],
   "communication_patterns": {
     "casualness_level": 8,

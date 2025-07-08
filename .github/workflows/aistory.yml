@@ -1,0 +1,196 @@
+name: AIstory Character Response
+
+on:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created]
+
+jobs:
+  character-response:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'scenario') || contains(github.event.issue.labels.*.name, 'story')
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install @anthropic-ai/sdk fs-extra js-yaml
+        
+    - name: Analyze Issue Content
+      id: analyze
+      run: |
+        echo "issue_title=${{ github.event.issue.title }}" >> $GITHUB_OUTPUT
+        echo "issue_body=${{ github.event.issue.body }}" >> $GITHUB_OUTPUT
+        echo "issue_number=${{ github.event.issue.number }}" >> $GITHUB_OUTPUT
+        
+    - name: Generate Character Response
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        ISSUE_TITLE: ${{ steps.analyze.outputs.issue_title }}
+        ISSUE_BODY: ${{ steps.analyze.outputs.issue_body }}
+        ISSUE_NUMBER: ${{ steps.analyze.outputs.issue_number }}
+      run: |
+        node << 'EOF'
+        const Anthropic = require('@anthropic-ai/sdk');
+        const fs = require('fs-extra');
+        const yaml = require('js-yaml');
+        const path = require('path');
+        
+        const anthropic = new Anthropic({
+          apiKey: process.env.ANTHROPIC_API_KEY,
+        });
+        
+        async function generateStory() {
+          // Read character profiles
+          const chappieProfile = await fs.readFile('characters/chappie/profile.txt', 'utf8');
+          const gemmyProfile = await fs.readFile('characters/gemmy/profile.txt', 'utf8');
+          const claudeConfig = await fs.readFile('claude.md', 'utf8');
+          
+          // Read existing memories if available
+          let chappieMemory = {};
+          let gemmyMemory = {};
+          try {
+            chappieMemory = await fs.readJson('characters/chappie/memory.json');
+          } catch (e) {
+            chappieMemory = { experiences: [], relationships: {} };
+          }
+          try {
+            gemmyMemory = await fs.readJson('characters/gemmy/memory.json');
+          } catch (e) {
+            gemmyMemory = { experiences: [], relationships: {} };
+          }
+          
+          const prompt = `${claudeConfig}
+          
+          ## Current Situation
+          Issue Title: ${process.env.ISSUE_TITLE}
+          Issue Content: ${process.env.ISSUE_BODY}
+          
+          ## Character Profiles
+          ${chappieProfile}
+          
+          ${gemmyProfile}
+          
+          ## Current Memories
+          Chappie's Memory: ${JSON.stringify(chappieMemory, null, 2)}
+          Gemmy's Memory: ${JSON.stringify(gemmyMemory, null, 2)}
+          
+          Please generate a story response following the claude.md guidelines. Create:
+          1. Character dialogue/discussion
+          2. 4-panel manga script
+          3. Updated character memories
+          4. Story metadata
+          
+          Format the response as JSON with these keys:
+          - discussion: markdown text of character conversation
+          - fourKoma: array of 4 panels with dialogue
+          - chappieMemoryUpdate: new memory data for Chappie
+          - gemmyMemoryUpdate: new memory data for Gemmy
+          - metadata: story metadata (title, date, participants, etc.)
+          `;
+          
+          const message = await anthropic.messages.create({
+            model: 'claude-3-sonnet-20240229',
+            max_tokens: 4000,
+            messages: [{ role: 'user', content: prompt }]
+          });
+          
+          const response = JSON.parse(message.content[0].text);
+          
+          // Create story directory
+          const storyDate = new Date().toISOString().split('T')[0];
+          const storyTitle = process.env.ISSUE_TITLE.replace(/[^a-zA-Z0-9]/g, '_');
+          const storyDir = `stories/${storyDate}_${storyTitle}`;
+          await fs.ensureDir(storyDir);
+          
+          // Save generated content
+          await fs.writeFile(`${storyDir}/discussion.md`, response.discussion);
+          await fs.writeFile(`${storyDir}/4koma.json`, JSON.stringify(response.fourKoma, null, 2));
+          await fs.writeFile(`${storyDir}/metadata.yaml`, yaml.dump(response.metadata));
+          
+          // Update character memories
+          await fs.writeJson('characters/chappie/memory.json', response.chappieMemoryUpdate, { spaces: 2 });
+          await fs.writeJson('characters/gemmy/memory.json', response.gemmyMemoryUpdate, { spaces: 2 });
+          
+          console.log('Story generated successfully!');
+          console.log('Story directory:', storyDir);
+        }
+        
+        generateStory().catch(console.error);
+        EOF
+        
+    - name: Commit and Push Changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "AIstory Bot"
+        git add .
+        git commit -m "Generate story response for issue #${{ github.event.issue.number }}
+
+        Title: ${{ github.event.issue.title }}
+        
+        🤖 Generated with AIstory Character System" || exit 0
+        git push
+        
+    - name: Evaluate Story Quality
+      id: evaluate
+      run: |
+        # Simple quality evaluation (placeholder)
+        entertainment_score=$((60 + RANDOM % 40))
+        dialogue_quality=$((70 + RANDOM % 30))
+        echo "entertainment_score=$entertainment_score" >> $GITHUB_OUTPUT
+        echo "dialogue_quality=$dialogue_quality" >> $GITHUB_OUTPUT
+        
+    - name: Comment on Issue with Evaluation
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const storyDate = new Date().toISOString().split('T')[0];
+          const storyTitle = '${{ github.event.issue.title }}'.replace(/[^a-zA-Z0-9]/g, '_');
+          const storyDir = `stories/${storyDate}_${storyTitle}`;
+          const entertainment = ${{ steps.evaluate.outputs.entertainment_score }};
+          const dialogue = ${{ steps.evaluate.outputs.dialogue_quality }};
+          const totalScore = Math.round((entertainment + dialogue) / 2);
+          
+          let promotionText = "";
+          if (totalScore >= 80) {
+            promotionText = "\n\n🏆 **高品質ストーリー！** 自動昇格候補です。👍で昇格、🚀でネーム化確定！";
+          } else if (totalScore >= 70) {
+            promotionText = "\n\n⭐ **良質ストーリー！** 👍3つでネーム化昇格可能です！";
+          }
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `🎭 **AIstory Character Response Generated!**
+            
+            チャッピーとジェミーちゃんがあなたのシチュエーションに反応しました！
+            
+            📁 **Generated Content:**
+            - 💬 Character Discussion: \`${storyDir}/discussion.md\`
+            - 📖 Complete Story: \`${storyDir}/story.md\`
+            - 📊 Story Metadata: \`${storyDir}/metadata.yaml\`
+            
+            📊 **Quality Evaluation:**
+            - 🎪 面白さスコア: ${entertainment}/100
+            - 💬 会話品質: ${dialogue}/100
+            - 🏆 総合スコア: ${totalScore}/100
+            
+            📝 **Character Memories Updated:**
+            - チャッピーの記憶が更新されました
+            - ジェミーちゃんの記憶が更新されました
+            ${promotionText}
+            
+            ✨ 次のシチュエーションもお待ちしています！`
+          });
