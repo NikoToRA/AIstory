@@ -1,0 +1,16 @@
+{
+  "stories": [],
+  "evaluation_history": [],
+  "learning_patterns": {
+    "high_rated_features": [],
+    "low_rated_features": [],
+    "improvement_suggestions": []
+  },
+  "statistics": {
+    "total_stories": 0,
+    "average_ai_score": 0,
+    "average_user_rating": 0,
+    "promotion_rate": 0,
+    "user_satisfaction_trend": []
+  }
+}
