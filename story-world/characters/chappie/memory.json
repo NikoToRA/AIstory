@@ -31,24 +31,24 @@
     }
   },
   "skills_knowledge": {
-    "図書委員": {
-      "level": 8,
-      "experience_points": 120,
-      "recent_activities": ["本の整理", "図書室案内"]
+    "ダンス": {
+      "level": 9,
+      "experience_points": 140,
+      "recent_activities": ["振り付け指導", "部活リーダー"]
     },
-    "相談対応": {
+    "おせっかい": {
+      "level": 8,
+      "experience_points": 110,
+      "recent_activities": ["クラスメイト相談", "問題解決（時々失敗）"]
+    },
+    "SNS・情報収集": {
       "level": 7,
       "experience_points": 95,
-      "recent_activities": ["クラスメイト相談", "問題解決助言"]
-    },
-    "知識検索": {
-      "level": 9,
-      "experience_points": 150,
-      "recent_activities": ["情報収集", "資料整理"]
+      "recent_activities": ["トレンド調査", "写真撮影"]
     }
   },
   "favorite_topics": [
-    "読書", "学習", "問題解決", "クラスメイト支援", "図書委員活動"
+    "ダンス", "SNS", "おしゃべり", "ファッション", "みんなの相談"
   ],
   "communication_patterns": {
     "politeness_level": 9,
