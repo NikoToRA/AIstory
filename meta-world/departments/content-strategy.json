@@ -1,0 +1,95 @@
+{
+  "department": "コンテンツ戦略部",
+  "head": "田中美咲（AI業界出身・元エンジニア）",
+  "mission": "AIstory世界の一貫性維持と新規コンテンツ企画",
+  
+  "current_projects": {
+    "aistory_school": {
+      "title": "AIstory学園シリーズ",
+      "status": "運営中",
+      "target_demographic": "AI学習者・学生",
+      "content_types": ["4コマ漫画", "ショート動画", "教育コンテンツ"],
+      "kpi": {
+        "monthly_engagement": "目標50万インプレッション",
+        "educational_impact": "AI理解度20%向上",
+        "character_popularity": "チャッピー人気度95%維持"
+      }
+    }
+  },
+  
+  "world_building_rules": {
+    "character_development": {
+      "growth_rate": "月1-2回の大きな成長イベント",
+      "relationship_evolution": "自然な関係性変化を重視",
+      "skill_progression": "実際のAI技術進歩に連動"
+    },
+    "story_consistency": {
+      "timeline_management": "学年・季節の整合性維持",
+      "character_memory": "過去エピソードとの矛盾回避",
+      "world_rules": "AI擬人化のルール統一"
+    },
+    "educational_value": {
+      "accuracy_first": "AI技術の正確な表現",
+      "accessibility": "専門用語の分かりやすい解説",
+      "practical_application": "実生活での活用例紹介"
+    }
+  },
+  
+  "content_formats": {
+    "daily_4koma": {
+      "frequency": "平日毎日",
+      "theme": "日常あるある＋AI学習",
+      "character_rotation": "全キャラ均等露出"
+    },
+    "special_episodes": {
+      "frequency": "月1-2回",
+      "theme": "技術解説・大型イベント",
+      "format": "複数話連載"
+    },
+    "educational_series": {
+      "frequency": "週1回",
+      "theme": "AI基礎知識・実用tips",
+      "format": "解説+実践例"
+    }
+  },
+  
+  "audience_research": {
+    "primary_audience": {
+      "age_range": "15-35歳",
+      "interests": ["AI技術", "学習", "エンタメ"],
+      "pain_points": ["AI難しそう", "専門用語分からない"]
+    },
+    "engagement_patterns": {
+      "peak_hours": "平日12-13時、20-22時",
+      "popular_content": "失敗系・あるある系・関係性進展",
+      "viral_factors": ["共感性", "教育価値", "キャラ萌え"]
+    }
+  },
+  
+  "future_expansions": {
+    "new_characters": [
+      {
+        "name": "ミドジャーニー美琴",
+        "ai_type": "画像生成AI",
+        "personality": "芸術肌・完璧主義",
+        "role": "美術部部長"
+      },
+      {
+        "name": "コパイ先輩",
+        "ai_type": "GitHub Copilot",
+        "personality": "プログラマー気質・先輩風",
+        "role": "情報処理部部長"
+      }
+    ],
+    "spin_off_series": [
+      "AIstory企業編",
+      "AIstory大学編", 
+      "AIstory海外編"
+    ],
+    "merchandise_plans": [
+      "キャラクターグッズ",
+      "学習教材セット",
+      "企業研修パッケージ"
+    ]
+  }
+}

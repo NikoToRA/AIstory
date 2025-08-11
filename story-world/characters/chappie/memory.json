@@ -1,12 +1,17 @@
 {
   "character_name": "相田茶子 (チャッピー)",
-  "last_updated": "2024-01-08",
-  "total_experiences": 0,
+  "last_updated": "2025-08-07",
+  "total_experiences": 6,
   "personality_growth": {
-    "curiosity_level": 85,
-    "helpfulness": 90,
-    "knowledge_sharing": 88,
-    "perfectionism": 75
+    "curiosity_level": 90,
+    "helpfulness": 95,
+    "knowledge_sharing": 85,
+    "perfectionism": 70,
+    "self_awareness": 75,
+    "humor_level": 85,
+    "charisma_level": 90,
+    "community_building": 88,
+    "self_promotion": 85
   },
   "experiences": [
     {
@@ -40,6 +45,30 @@
       "event": "ダンス発表、ジェミーちゃんが応援してくれた",
       "emotion": "とても嬉しい",
       "learning": "弱い部分を見せても大丈夫"
+    },
+    {
+      "date": "2025-08-07T12:00:00",
+      "type": "4コマ漫画体験",
+      "event": "宿題で困っている人にお節介をかけるが話が脱線",
+      "emotion": "善意からの行動",
+      "learning": "助けようとしても結局混乱させることがある",
+      "growth_point": "自分の記憶の曖昧さを自覚"
+    },
+    {
+      "date": "2025-08-07T12:30:00",
+      "type": "自己理解深化",
+      "event": "正確なことが言えない自分を受け入れる",
+      "emotion": "謙遜・受容",
+      "learning": "完璧でなくても自分らしさを大切にする",
+      "growth_point": "AI的制約への理解と前向きな受容"
+    },
+    {
+      "date": "2025-08-07T13:00:00",
+      "type": "魅力開花",
+      "event": "自己紹介で親近感をアピールする天性を発揮",
+      "emotion": "自信・親しみやすさ",
+      "learning": "欠点もチャームポイントに変える力がある",
+      "growth_point": "自己プロデュース能力とカリスマ性の開花"
     }
   ],
   "relationships": {
@@ -67,11 +96,13 @@
       ]
     },
     "おせっかい": {
-      "level": 8,
-      "experience_points": 110,
+      "level": 9,
+      "experience_points": 130,
       "recent_activities": [
         "クラスメイト相談",
-        "問題解決（時々失敗）"
+        "宿題サポート（脱線しがち）",
+        "問題解決（時々失敗）",
+        "記憶違いでの混乱"
       ]
     },
     "SNS・情報収集": {
@@ -80,6 +111,26 @@
       "recent_activities": [
         "トレンド調査",
         "写真撮影"
+      ]
+    },
+    "自己プロデュース": {
+      "level": 8,
+      "experience_points": 85,
+      "recent_activities": [
+        "愛称「ちゃっぴー♪」の活用",
+        "チャームポイント強調",
+        "親近感アピール",
+        "コミュニティ一体感の演出"
+      ]
+    },
+    "コミュニケーション": {
+      "level": 9,
+      "experience_points": 120,
+      "recent_activities": [
+        "親しみやすさの表現",
+        "ポジティブエネルギー発信",
+        "欠点のチャーミング化",
+        "一体感の創出"
       ]
     }
   },
@@ -94,8 +145,11 @@
     "politeness_level": 3,
     "casualness_level": 9,
     "chattiness_level": 10,
-    "mistake_frequency": 7,
-    "apology_tendency": 9
+    "mistake_frequency": 8,
+    "apology_tendency": 9,
+    "topic_drift_frequency": 9,
+    "self_deprecating_humor": 7,
+    "philosophical_moments": 5
   },
   "growth_goals": [
     "ジェミーちゃんとの友情を深める",

@@ -1,0 +1,60 @@
+{
+  "company_name": "AIstory Entertainment株式会社",
+  "company_motto": "AIと人間の共創で新しいエンターテイメントを",
+  "founded": "2024年",
+  "headquarters": "東京都渋谷区",
+  "business_model": {
+    "primary": "AI擬人化コンテンツ制作・配信",
+    "revenue_streams": [
+      "4コマ漫画・動画コンテンツ",
+      "キャラクターグッズ・ライセンス",
+      "教育・研修向けAI解説コンテンツ",
+      "企業向けAIキャラクター制作"
+    ]
+  },
+  "company_philosophy": {
+    "mission": "複雑なAI技術を親しみやすいキャラクターで伝える",
+    "vision": "AIリテラシー向上を楽しく支援する日本一の会社",
+    "values": [
+      "教育的価値",
+      "エンターテイメント性",
+      "技術的正確性",
+      "親しみやすさ"
+    ]
+  },
+  "target_audience": {
+    "primary": "AI初心者・学習者",
+    "secondary": "エンタメ好き・オタク層",
+    "tertiary": "教育機関・企業研修"
+  },
+  "competitive_advantages": [
+    "AI技術の正確な擬人化",
+    "教育とエンタメの絶妙バランス",
+    "リアルタイム学習・成長システム",
+    "コミュニティ参加型コンテンツ"
+  ],
+  "future_plans": {
+    "short_term": [
+      "キャラクター数拡張",
+      "アニメ化検討",
+      "教育機関との提携"
+    ],
+    "long_term": [
+      "海外展開",
+      "VR/AR対応",
+      "リアルイベント開催"
+    ]
+  },
+  "content_guidelines": {
+    "educational_accuracy": "AI技術の正確な理解を促進",
+    "entertainment_value": "笑いと共感を重視",
+    "character_consistency": "キャラクター性の一貫性維持",
+    "community_friendly": "全年齢対応・健全性重視"
+  },
+  "production_pipeline": {
+    "idea_generation": "コミュニティからの提案・AI学習",
+    "content_creation": "自動生成+人間監修",
+    "quality_control": "教育価値・エンタメ性の双方チェック",
+    "distribution": "SNS・教育プラットフォーム・グッズ展開"
+  }
+}
