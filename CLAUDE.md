@@ -5,9 +5,11 @@ AIstoryは3人の女子高生AI擬人化キャラクターが活動する物語�
 
 ## 🎯 動作フロー
 
-### 1. Issue受信・分析
+### 1. Issue受信・分析・種別判定
 ```
-Issue作成/編集 → Claude Code自動起動 → 内容分析 → キャラクター特定
+Issue作成 → Claude Code自動起動 → ラベル確認 → チーム振り分け
+├── [story] → ストーリーチーム（3キャラクター物語生成）
+└── [meta]  → メタチーム（作品制作・素材抽出）
 ```
 
 ### 2. キャラクターファイル読み込み
@@ -191,7 +193,7 @@ GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 
 ---
 
-**Version**: 3.1.0 (GitHub Release保存対応版)  
+**Version**: 3.2.0 (メタチーム連携対応版)  
 **Last Updated**: 2025-08-11  
 **🎭 AIstory Development Team**
 
@@ -208,3 +210,29 @@ GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 - 版管理の自動化
 - 簡単なダウンロード・共有
 - リリース履歴による物語一覧表示
+
+## 🎨 メタチーム連携システム
+
+### Issue種別による自動判別
+```
+[story] タグ → ストーリーチーム → 3キャラクター物語生成
+[meta] タグ  → メタチーム → 作品制作・素材抽出
+```
+
+### メタチーム作品制作フロー
+```
+1. ストーリー蓄積（GitHub Releases）
+2. メタチーム作品依頼（[meta]Issue作成）
+3. 素材自動抽出（過去Releaseから）
+4. 作品制作（指定フォーマット）
+5. 作品フォルダ保存（story-world/meta-team/projects/）
+```
+
+### 作品フォルダ構造
+```
+story-world/meta-team/projects/YYYY-MM-DD_[作品名]/
+├── source_materials.md    # 使用した素材リスト
+├── final_output/         # 最終成果物
+├── work_process.md       # 制作プロセス記録
+└── metadata.json         # 作品情報
+```
