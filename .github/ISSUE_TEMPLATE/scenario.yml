@@ -1,5 +1,5 @@
 name: 📖 シナリオ・シチュエーション投稿
-description: チャッピーとジェミーちゃんに新しいシチュエーションを与えて物語を作ってもらいましょう！
+description: 3人の女子高生AIキャラクターに新しいシチュエーションを与えて物語を作ってもらいましょう！@claude
 title: "[シナリオ] "
 labels: ["scenario"]
 assignees: []
@@ -10,16 +10,10 @@ body:
       value: |
         ## 🎭 AIstoryシナリオ投稿
         
-        チャッピー（相田茶子）とジェミーちゃん（兼崎ちえみ）に新しいシチュエーションを与えて、
-        彼女たちの反応や物語を楽しみましょう！
+        チャッピー（相田茶子）、ジェミー（兼崎ちえみ）、クロードちゃん（黒田礼）の3人に
+        新しいシチュエーションを与えて、彼女たちの反応や物語を楽しみましょう！
         
-        投稿後、GitHub Actionsが自動的に：
-        - キャラクターの議論を生成
-        - 四コマ漫画のネームを作成  
-        - キャラクターの記憶を更新
-        - 物語データを保存
-        
-        します。
+        投稿後、@claude が自動的にGitHub Actions経由で起動し、物語を生成します。
 
   - type: input
     id: scenario_title
@@ -45,7 +39,7 @@ body:
         - 心温まる話
         - その他
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: scenario_description
@@ -62,7 +56,7 @@ body:
         - 目標：みんなが楽しめる企画を考える
       render: markdown
     validations:
-      required: true
+      required: false
 
   - type: checkboxes
     id: character_focus
@@ -71,7 +65,8 @@ body:
       description: "どちらのキャラクターを中心にしたいですか？（複数選択可）"
       options:
         - label: "チャッピー（相田茶子）- ChatGPT擬人化"
-        - label: "ジェミーちゃん（兼崎ちえみ）- Gemini擬人化"
+        - label: "ジェミー（兼崎ちえみ）- Gemini擬人化"
+        - label: "クロードちゃん（黒田礼）- Claude擬人化"
 
   - type: dropdown
     id: output_format
@@ -86,7 +81,7 @@ body:
         - チャット風
         - おまかせ
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: additional_notes
@@ -101,15 +96,3 @@ body:
         - コメディ要素多めで
       render: markdown
 
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: "📋 確認事項"
-      description: "以下の内容をご確認ください"
-      options:
-        - label: "生成された物語はGitHub上で公開されることを理解しています"
-          required: true
-        - label: "キャラクターの反応は AI によって生成されることを理解しています"
-          required: true
-        - label: "不適切な内容は含まれていません"
-          required: true
