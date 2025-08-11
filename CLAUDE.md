@@ -193,9 +193,22 @@ GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 
 ---
 
-**Version**: 3.2.0 (メタチーム連携対応版)  
+**Version**: 3.3.0 (OAuth認証対応版)  
 **Last Updated**: 2025-08-11  
 **🎭 AIstory Development Team**
+
+## ⚙️ 認証設定
+
+### OAuth認証を使用（推奨）
+- **APIキーは使用しません**
+- **Claude Code OAuth認証**を利用
+- GitHub Secrets に `CLAUDE_CODE_OAUTH_TOKEN` を設定
+- Anthropic Console でOAuth設定が必要
+
+### 参考資料
+認証設定詳細: https://note.com/lab_bit__sutoh/n/nc39cc4ea33f0
+
+**注意**: `ANTHROPIC_API_KEY` は使用しないでください。OAuth認証のみをサポートしています。
 
 ## 📋 リリース保存仕様
 
