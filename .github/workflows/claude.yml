@@ -14,6 +14,8 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  releases: write
+  packages: write
 
 jobs:
   claude:

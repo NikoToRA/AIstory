@@ -18,12 +18,13 @@ story-world/characters/claude/profile.txt    # クロードちゃん設定
 story-world/characters/*/memory.json         # 各キャラクター記憶
 ```
 
-### 3. 物語生成・ファイル作成
+### 3. 物語生成・リリース準備
 ```
-stories/YYYY-MM-DD_[タイトル]/
+物語生成 → リリースアセット作成
 ├── episode.md          # メイン物語
 ├── character_dialogue.md  # キャラクター別台詞
-└── metadata.json       # エピソード情報
+├── metadata.json       # エピソード情報
+└── story_archive.zip   # 全ファイルのアーカイブ
 ```
 
 ### 4. キャラクター記憶更新
@@ -31,9 +32,9 @@ stories/YYYY-MM-DD_[タイトル]/
 story-world/characters/*/memory.json に新しい体験を追加
 ```
 
-### 5. Pull Request作成
+### 5. GitHub Release作成
 ```
-生成されたファイルをPull Requestとして提出
+生成された物語を自動的にGitHub Releaseとして保存・公開
 ```
 
 ## 👥 キャラクター制御ルール
@@ -177,16 +178,33 @@ echo "メタデータ" > stories/$(date +%Y-%m-%d)_[タイトル]/metadata.json
 何かいいアイデアはありませんか？
 ```
 
-### 期待される生成ファイル
+### 期待される保存形式
 ```
-stories/2025-08-11_文化祭AI企画/
+GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 ├── episode.md          # 3人の掛け合い物語
 ├── dialogue.md         # キャラクター別台詞集  
-└── metadata.json       # エピソード情報
+├── metadata.json       # エピソード情報
+└── story_archive.zip   # 全ファイルのアーカイブ
+
+リリースノート: キャラクターたちの反応と物語の要約
 ```
 
 ---
 
-**Version**: 3.0.0 (Claude Code対応版)  
+**Version**: 3.1.0 (GitHub Release保存対応版)  
 **Last Updated**: 2025-08-11  
 **🎭 AIstory Development Team**
+
+## 📋 リリース保存仕様
+
+### GitHub Release自動作成
+- **タイトル**: "AIstory Episode - YYYY-MM-DD_[シナリオタイトル]"
+- **タグ**: "episode-YYYY-MM-DD-HHMMSS"
+- **説明**: 3キャラクターの反応と物語の要約
+- **アセット**: episode.md, dialogue.md, metadata.json, story_archive.zip
+
+### 利点
+- ファイル競合の回避
+- 版管理の自動化
+- 簡単なダウンロード・共有
+- リリース履歴による物語一覧表示
