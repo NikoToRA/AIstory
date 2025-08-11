@@ -20,6 +20,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         
+      - name: Debug API Key Setup
+        run: |
+          echo "🔍 Checking ANTHROPIC_API_KEY environment variable..."
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "❌ ANTHROPIC_API_KEY is not set or empty"
+            echo "Please ensure ANTHROPIC_API_KEY is configured in GitHub Secrets"
+            exit 1
+          else
+            echo "✅ ANTHROPIC_API_KEY is set (length: ${#ANTHROPIC_API_KEY} characters)"
+          fi
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        
       - name: Claude Code Action
         uses: anthropics/claude-code-action@main
         env:
