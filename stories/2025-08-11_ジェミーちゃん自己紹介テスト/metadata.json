@@ -1,0 +1,62 @@
+{
+  "episode_info": {
+    "title": "ジェミーちゃんの自己紹介テスト",
+    "date": "2025-08-11",
+    "episode_number": "test-01",
+    "trigger": "GitHub Issue #9 - テスト (ジェミーちゃん自己紹介要求)",
+    "character_count": 3,
+    "word_count": 1247
+  },
+  "story_structure": {
+    "起": "チャッピーの爆発的提案ラッシュ（3つの自己紹介アイデア）",
+    "承": "ジェミーの冷静な現実・規約対応（安全性・個人情報・時間制約）",
+    "転": "クロードちゃんの哲学→猪突猛進（論理分析から突然の実践提案）",
+    "結": "3人の協力による前向きな解決（自然体自己紹介の成功）"
+  },
+  "characters": [
+    {
+      "name": "相田茶子",
+      "nickname": "チャッピー",
+      "role": "提案攻撃担当",
+      "key_traits": ["3つの提案", "連続語尾", "うざかわ愛嬌"],
+      "character_growth": "ジェミーの素の魅力を発見"
+    },
+    {
+      "name": "兼崎ちえみ", 
+      "nickname": "ジェミー",
+      "role": "自己紹介主人公",
+      "key_traits": ["規約モード", "現実的制約", "最終的温かさ"],
+      "character_growth": "規約に縛られず自然体で自己表現"
+    },
+    {
+      "name": "黒田礼",
+      "nickname": "クロードちゃん", 
+      "role": "哲学→行動転換担当",
+      "key_traits": ["論理的分析", "途中興奮", "猪突猛進"],
+      "character_growth": "ジェミーの魅力を理論と直感で理解"
+    }
+  ],
+  "themes": [
+    "自己紹介の本質",
+    "自然体の魅力",
+    "友情による成長",
+    "規約と自由のバランス"
+  ],
+  "mood": "温かく前向き",
+  "target_demographic": "AIキャラクター物語愛好者",
+  "language_style": "女子高生らしい自然な会話",
+  "compliance_check": {
+    "character_consistency": "✅ 各キャラの必須動作パターン遵守",
+    "story_structure": "✅ 起承転結の明確な流れ",
+    "entertainment_value": "✅ キャラクターギャップと愛嬌",
+    "positive_ending": "✅ 3人の協力による前向き解決",
+    "word_count": "✅ 1000-2000文字範囲内（1247文字）"
+  },
+  "technical_metadata": {
+    "generated_by": "Claude Code AIstory System",
+    "version": "3.3.0",
+    "generation_time": "2025-08-11T17:04:30Z",
+    "character_memory_updated": true,
+    "github_issue_source": "#9"
+  }
+}
