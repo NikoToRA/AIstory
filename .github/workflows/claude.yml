@@ -25,7 +25,11 @@ jobs:
       (github.event_name == 'issues' && contains(github.event.issue.body, '@claude')) ||
       (github.event_name == 'pull_request')
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Claude Code Action
-        uses: anthropics/claude-code-action@v1
+        uses: joesarre/claude-code-action@v1
         with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}

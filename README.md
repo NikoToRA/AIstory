@@ -60,8 +60,8 @@ AIstoryは完全自動化されたAI キャラクター物語生成システム�
 
 ### 1. セットアップ（1回だけ）
 1. **リポジトリフォーク**: このリポジトリをフォーク
-2. **Claude GitHub App インストール**: https://github.com/apps/claude からAppをインストール
-3. **完了**: APIキー設定不要！Claude Appが全て処理
+2. **API Key設定**: `ANTHROPIC_API_KEY` をGitHub Secretsに追加
+3. **完了**: Claude Code Actionが全て自動処理
 
 ### 2. 物語生成（毎回これだけ！）
 1. **GitHub Issue作成**: タイトルと内容を書く（**@claudeメンション必須**）
@@ -98,8 +98,8 @@ AIstoryは完全自動化されたAI キャラクター物語生成システム�
 ## 🔧 技術仕様
 
 ### システム構成
-- **Platform**: GitHub Actions + Claude GitHub App
-- **Authentication**: Claude App（APIキー不要）
+- **Platform**: GitHub Actions + Claude Code Action
+- **Authentication**: Anthropic API Key (GitHub Secrets)
 - **Trigger**: @claudeメンション時に自動実行
 - **AI Model**: Claude (Anthropic)
 - **Output**: Markdown + JSON形式
@@ -126,7 +126,7 @@ AIstoryは完全自動化されたAI キャラクター物語生成システム�
 
 ### 💰 コスト効率
 - **Issue応答型**: 無駄な定期実行なし
-- **Claude GitHub App**: APIキー管理不要
+- **Anthropic API**: 使用時のみ課金
 - **GitHub Actions**: 月2000分まで無料
 - **課金**: Claude利用分のみ（効率的）
 
