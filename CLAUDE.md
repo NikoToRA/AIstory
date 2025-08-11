@@ -14,10 +14,10 @@ Issue作成 → Claude Code自動起動 → ラベル確認 → チーム振り�
 
 ### 2. キャラクターファイル読み込み
 ```
-story-world/characters/chappie/profile.txt   # チャッピー設定
-story-world/characters/gemmy/profile.txt     # ジェミー設定
-story-world/characters/claude/profile.txt    # クロードちゃん設定
-story-world/characters/*/memory.json         # 各キャラクター記憶
+story/characters/chappie/profile.txt   # チャッピー設定
+story/characters/gemmy/profile.txt     # ジェミー設定
+story/characters/claude/profile.txt    # クロードちゃん設定
+story/characters/*/memory.json         # 各キャラクター記憶
 ```
 
 ### 3. 物語生成・リリース準備
@@ -31,7 +31,7 @@ story-world/characters/*/memory.json         # 各キャラクター記憶
 
 ### 4. キャラクター記憶更新
 ```
-story-world/characters/*/memory.json に新しい体験を追加
+story/characters/*/memory.json に新しい体験を追加
 ```
 
 ### 5. GitHub Release作成
@@ -193,7 +193,7 @@ GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 
 ---
 
-**Version**: 3.3.0 (OAuth認証対応版)  
+**Version**: 3.4.0 (フォルダ構造整理版)  
 **Last Updated**: 2025-08-11  
 **🎭 AIstory Development Team**
 
@@ -238,12 +238,12 @@ GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 2. メタチーム作品依頼（[meta]Issue作成）
 3. 素材自動抽出（過去Releaseから）
 4. 作品制作（指定フォーマット）
-5. 作品フォルダ保存（story-world/meta-team/projects/）
+5. 作品フォルダ保存（meta-world/meta-team/projects/）
 ```
 
 ### 作品フォルダ構造
 ```
-story-world/meta-team/projects/YYYY-MM-DD_[作品名]/
+meta-world/meta-team/projects/YYYY-MM-DD_[作品名]/
 ├── source_materials.md    # 使用した素材リスト
 ├── final_output/         # 最終成果物
 ├── work_process.md       # 制作プロセス記録
