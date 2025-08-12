@@ -107,26 +107,33 @@ story/characters/*/memory.json に新しい体験を追加
 ### 必須読み込み
 ```bash
 # キャラクター設定を必ず読む
-cat story-world/characters/chappie/profile.txt
-cat story-world/characters/gemmy/profile.txt  
-cat story-world/characters/claude/profile.txt
+cat story/characters/chappie/profile.txt
+cat story/characters/gemmy/profile.txt  
+cat story/characters/claude/profile.txt
 
 # 過去の記憶も参照
-cat story-world/characters/*/memory.json
+cat story/characters/*/memory.json
+
+# 過去のエピソード参照
+ls story/output/*/episode_*.md
+cat story/output/*/metadata/episode_*.json
 ```
 
-### 必須作成ファイル
+### 新しい保存構造
 ```bash
+# エピソード番号を自動取得
+EPISODE_NUM=$(find story/output -name "episode_*.md" | wc -l | awk '{print $1+1}')
+TODAY=$(date +%Y-%m-%d)
+
 # 新エピソード作成
-mkdir stories/$(date +%Y-%m-%d)_[Issue基づくタイトル]
-echo "メイン物語" > stories/$(date +%Y-%m-%d)_[タイトル]/episode.md
-echo "キャラ別台詞" > stories/$(date +%Y-%m-%d)_[タイトル]/dialogue.md
-echo "メタデータ" > stories/$(date +%Y-%m-%d)_[タイトル]/metadata.json
+mkdir -p story/output/$TODAY/metadata
+echo "エピソード$EPISODE_NUM" > story/output/$TODAY/episode_$(printf "%03d" $EPISODE_NUM).md
+echo "メタデータ" > story/output/$TODAY/metadata/episode_$(printf "%03d" $EPISODE_NUM).json
 ```
 
 ### 記憶更新ルール
 ```json
-// story-world/characters/[name]/memory.json に追加
+// story/characters/[name]/memory.json に追加
 {
   "date": "YYYY-MM-DD",
   "type": "GitHub Issue応答",
@@ -134,7 +141,8 @@ echo "メタデータ" > stories/$(date +%Y-%m-%d)_[タイトル]/metadata.json
   "participants": ["関与したキャラクター名"],
   "emotions": ["感情タグ"],
   "learning": "この体験から学んだこと",
-  "impact_level": "high/medium/low"
+  "impact_level": "high/medium/low",
+  "episode_reference": "story/output/YYYY-MM-DD/episode_XXX.md"
 }
 ```
 
@@ -193,9 +201,45 @@ GitHub Release: "AIstory Episode - 2025-08-11_文化祭AI企画"
 
 ---
 
-**Version**: 3.4.0 (フォルダ構造整理版)  
-**Last Updated**: 2025-08-11  
+**Version**: 3.5.0 (story/ファイル整理版)  
+**Last Updated**: 2025-08-12  
 **🎭 AIstory Development Team**
+
+## 📂 story/フォルダ新構造
+
+### 整理された構造
+```
+story/
+├── output/                    # 完成エピソード（最終版のみ）
+│   ├── 2025-07-08/           # 日付ごと整理
+│   │   ├── episode_001.md    # エピソード001: チャッピーとジェミーちゃんが図書室で初めて話す
+│   │   ├── episode_002.md    # エピソード002: お昼休みの勉強会
+│   │   ├── episode_003.md    # エピソード003: 生徒会予算会議
+│   │   ├── ...               # その他のエピソード
+│   │   └── metadata/         # メタデータまとめ
+│   │       ├── episode_001.json
+│   │       ├── episode_002.json
+│   │       └── ...
+│   └── [今後の日付]/         # 新しいエピソード
+├── drafts/                   # 下書き・バージョン管理
+│   └── archived/            # 古いファイル保管（重複削除済み）
+├── characters/              # キャラクター設定・記憶
+├── engine/                  # 学習システム
+├── evaluations/            # 品質評価
+└── images/                 # 画像素材
+```
+
+### 新しいエピソード作成ルール
+1. **連番管理**: episode_001.md, episode_002.md...
+2. **日付フォルダ分離**: 日ごとに整理して管理しやすく
+3. **メタデータ分離**: metadata/フォルダに集約
+4. **重複除去**: タイムスタンプ付きファイルはarchived/に移動
+
+### 利点
+- **見つけやすい**: エピソード番号で簡単検索
+- **重複なし**: 最終版のみ保存
+- **拡張しやすい**: 新しい日付でフォルダ追加
+- **履歴保持**: archived/で過去バージョン保管
 
 ## ⚙️ 認証設定
 

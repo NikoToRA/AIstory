@@ -1,0 +1,20 @@
+{
+  "title": "お昼休みの勉強会",
+  "creation_date": "2025-07-08T15:13:51",
+  "characters": [
+    "チャッピー",
+    "ジェミーちゃん"
+  ],
+  "scene": "お昼休み",
+  "episode_number": 2,
+  "ai_evaluation": {
+    "entertainment_score": 82,
+    "dialogue_quality": 88,
+    "character_consistency": 95,
+    "story_structure": 85,
+    "total_score": 87.5
+  },
+  "status": "completed",
+  "word_count": 456,
+  "relationship_development": "知り合い → 勉強を教える先生と生徒の関係"
+}
