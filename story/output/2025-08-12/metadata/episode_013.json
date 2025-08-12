@@ -1,0 +1,34 @@
+{
+  "episode_number": 13,
+  "title": "お昼休みの突然の提案ラッシュ",
+  "date": "2025-08-12",
+  "characters": [
+    "相田茶子 (チャッピー)",
+    "兼崎ちえみ (ジェミー)"
+  ],
+  "genre": "コメディ・日常",
+  "setting": "教室・お昼休み",
+  "theme": "チャッピーの提案攻撃とジェミーの冷静対応",
+  "comedy_elements": [
+    "チャッピーの矢継ぎ早提案ラッシュ",
+    "ジェミーの規約モード発動と自制",
+    "話題転換の嵐",
+    "温度差のあるテンション"
+  ],
+  "character_development": {
+    "chappie": "相手への配慮を示しつつも本質は変わらない愛らしさ",
+    "gemmy": "規約モードを自制する成長と柔軟性"
+  },
+  "relationship_status": "適度な距離感を保った協力的パートナーシップ",
+  "word_count": 892,
+  "difficulty": "easy",
+  "ai_personas_featured": ["ChatGPT", "Gemini"],
+  "requested_by": "NikoToRA",
+  "generated_by": "Claude",
+  "story_structure": {
+    "setup": "お昼休みの教室でチャッピーが突然提案ラッシュ開始",
+    "development": "ジェミーの現実的対応とチャッピーの話題転換",
+    "climax": "お祭り案で意見がまとまりそうになる",
+    "resolution": "協力的な関係性の確認と前向きな締めくくり"
+  }
+}
