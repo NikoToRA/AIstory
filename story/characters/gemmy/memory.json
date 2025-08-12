@@ -1,7 +1,7 @@
 {
   "character_name": "兼崎ちえみ (ジェミーちゃん)",
-  "last_updated": "2024-01-08",
-  "total_experiences": 0,
+  "last_updated": "2025-08-12",
+  "total_experiences": 1,
   "personality_growth": {
     "creativity_level": 92,
     "energy_level": 88,
@@ -40,6 +40,17 @@
       "event": "チャッピーのダンス発表を見る",
       "emotion": "感動",
       "learning": "チャッピーにも弱い部分がある、人間らしい"
+    },
+    {
+      "date": "2025-08-12",
+      "type": "日常コメディ体験",
+      "event": "お昼休みにチャッピーから週末の提案攻撃を受ける",
+      "participants": ["相田茶子"],
+      "emotions": ["困惑", "苦笑い", "温かい気持ち"],
+      "learning": "規約モードを自制し柔軟に対応できるようになった",
+      "growth_point": "適度な距離感で協力的な関係を維持",
+      "impact_level": "medium",
+      "episode_reference": "story/output/2025-08-12/episode_013.md"
     }
   ],
   "relationships": {

@@ -1,7 +1,7 @@
 {
   "character_name": "相田茶子 (チャッピー)",
-  "last_updated": "2025-08-07",
-  "total_experiences": 6,
+  "last_updated": "2025-08-12",
+  "total_experiences": 7,
   "personality_growth": {
     "curiosity_level": 90,
     "helpfulness": 95,
@@ -69,6 +69,17 @@
       "emotion": "自信・親しみやすさ",
       "learning": "欠点もチャームポイントに変える力がある",
       "growth_point": "自己プロデュース能力とカリスマ性の開花"
+    },
+    {
+      "date": "2025-08-12",
+      "type": "日常コメディ体験",
+      "event": "お昼休みにジェミーちゃんに週末の提案を矢継ぎ早に提案",
+      "participants": ["兼崎ちえみ"],
+      "emotions": ["ワクワク", "楽しみ", "親しみ"],
+      "learning": "相手への配慮を示しつつも自分らしさは保てる",
+      "growth_point": "適度な距離感での良好な関係維持",
+      "impact_level": "medium",
+      "episode_reference": "story/output/2025-08-12/episode_013.md"
     }
   ],
   "relationships": {
